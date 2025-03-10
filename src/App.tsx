@@ -93,8 +93,8 @@ export function App() {
       const sortedMovies = [...freshMovies].sort((a, b) => b.vote_average - a.vote_average);
       setDisplayedMovies(sortedMovies.slice(0, 3));
     } else {
-      const uniqueMovies = Array.from(new Set(freshMovies.map(movie => movie.id))) // Lấy các ID duy nhất
-        .map(id => freshMovies.find(movie => movie.id === id)); // Map ID thành đối tượng phim
+      const uniqueMovies = Array.from(new Set(freshMovies.map(movie => movie.id)))
+        .map(id => freshMovies.find(movie => movie.id === id));
 
       setDisplayedMovies(uniqueMovies);
     }
@@ -105,8 +105,8 @@ export function App() {
 
     if (freshMovies.length > 0) {
 
-      const uniqueMovies = Array.from(new Set(freshMovies.map(movie => movie.id))) // Lấy các ID duy nhất
-        .map(id => freshMovies.find(movie => movie.id === id)); // Map ID thành đối tượng phim
+      const uniqueMovies = Array.from(new Set(freshMovies.map(movie => movie.id)))
+        .map(id => freshMovies.find(movie => movie.id === id));
       setDisplayedMovies(prev => [...prev, ...uniqueMovies]);
       console.log('uniqueMovies', uniqueMovies, page);
 
@@ -210,13 +210,11 @@ export function App() {
               list-type="single"
               span-count={1}
               scroll-orientation="vertical"
-              initial-scroll-index={0}
+              initial-scroll-index={1}
               scroll-event-throttle={16}
-              lower-threshold-item-count={2}
+              lower-threshold-item-count={1}
               bounces={false}
-            // bindscrolltolower={(e) => {
-            //   addDataToLower();
-            // }}
+              bindscrolltolower={addDataToLower}
             >
               {displayedMovies.map((movie, index) => {
                 return (
