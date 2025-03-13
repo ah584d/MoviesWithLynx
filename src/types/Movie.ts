@@ -1,5 +1,3 @@
-export type HeaderFilterType = 'All' | 'Action' | 'Comedy' | 'Drama';
-
 export interface IMovie {
     id: number;
     title: string;
