@@ -4,6 +4,7 @@
 
     "module": "node16",
     "moduleResolution": "node16",
+    "resolveJsonModule": true,
 
     "strict": true,
     "isolatedModules": true,
@@ -14,3 +15,5 @@
   },
   "exclude": ["dist/"],
 }
+
+

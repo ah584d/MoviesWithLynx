@@ -6,6 +6,7 @@ import type {IMovie} from "../../types/Movie.js"
 import {GENRE_MAP} from "../Constants.js"
 import "./Movies.css"
 import {useNavigate} from "react-router"
+import {t} from "../../i18n/i18n.js"
 
 const TMDB_BASE_URL = "https://api.themoviedb.org/3"
 const API_KEY = process.env.TMDB_API_KEY
@@ -143,8 +144,7 @@ export function Movies() {
                         </view>
                         <view className="FilterSection">
                             <text className="FilterLabel">
-                                {`Genre: ${GENRE_MAP?.[selectedGenre] || "All"
-                                    }`}
+                                {`${t('genre')}: ${GENRE_MAP?.[selectedGenre] || t('all')}`}
                             </text>
                             <view className="FilterOptions">
                                 <view
@@ -155,7 +155,7 @@ export function Movies() {
                                     }
                                     bindtap={handleActionGenre(null)}
                                 >
-                                    <text>All</text>
+                                    <text>{t('all')}</text>
                                 </view>
                                 <view
                                     className={
@@ -165,7 +165,7 @@ export function Movies() {
                                     }
                                     bindtap={handleActionGenre(28)}
                                 >
-                                    <text>Action</text>
+                                    <text>{t('action')}</text>
                                 </view>
                                 <view
                                     className={
@@ -175,7 +175,7 @@ export function Movies() {
                                     }
                                     bindtap={handleActionGenre(35)}
                                 >
-                                    <text>Comedy</text>
+                                    <text>{t('comedy')}</text>
                                 </view>
                                 <view
                                     className={
@@ -185,14 +185,14 @@ export function Movies() {
                                     }
                                     bindtap={handleActionGenre(18)}
                                 >
-                                    <text>Drama</text>
+                                    <text>{t('drama')}</text>
                                 </view>
                             </view>
                         </view>
 
                         <view className="FilterSection">
                             <text className="FilterLabel">
-                                {`Year: ${selectedYear}`}
+                                {`${t('year')}: ${selectedYear}`}
                             </text>
                             <view className="FilterOptionsYear">
                                 {Array(4)
@@ -313,7 +313,7 @@ export function Movies() {
 
                     <view className="RecommendButton" bindtap={handleGetMovies}>
                         <text className="ButtonText">
-                            {loading ? "Loading..." : "Get Movies"}
+                            {loading ? "Loading..." : t('get_movies')}
                         </text>
                     </view>
                 </view>
