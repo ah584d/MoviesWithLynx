@@ -85,8 +85,8 @@ export function Movies() {
             setDisplayedMovies(sortedMovies.slice(0, 3))
         } else {
             const uniqueMovies = Array.from(
-                new Set(freshMovies.map((movie) => movie.id))
-            ).map((id) => freshMovies.find((movie) => movie.id === id))
+                new Set(freshMovies.map((movie: IMovie) => movie.id))
+            ).map((id) => freshMovies.find((movie: IMovie) => movie.id === id))
 
             setDisplayedMovies(uniqueMovies)
         }
@@ -97,8 +97,8 @@ export function Movies() {
 
         if (freshMovies.length > 0) {
             const uniqueMovies = Array.from(
-                new Set(freshMovies.map((movie) => movie.id))
-            ).map((id) => freshMovies.find((movie) => movie.id === id))
+                new Set(freshMovies.map((movie: IMovie) => movie.id))
+            ).map((id) => freshMovies.find((movie: IMovie) => movie.id === id))
             setDisplayedMovies((prev) => [...prev, ...uniqueMovies])
             console.log("uniqueMovies", uniqueMovies, page)
 
@@ -144,7 +144,7 @@ export function Movies() {
                         </view>
                         <view className="FilterSection">
                             <text className="FilterLabel">
-                                {`${t('genre')}: ${GENRE_MAP?.[selectedGenre] || t('all')}`}
+                                {`${t('genre')}: ${selectedGenre && GENRE_MAP?.[selectedGenre] || t('all')}`}
                             </text>
                             <view className="FilterOptions">
                                 <view
